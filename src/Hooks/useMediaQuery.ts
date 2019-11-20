@@ -1,8 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 
 export const useMediaQuery = (mediaQuery: string): boolean => {
-    const initialValue: boolean = window.matchMedia(mediaQuery).matches;
-    const [matches, setMatches] = useState<boolean>(initialValue);
+    const [matches, setMatches] = useState<boolean>(() => window.matchMedia(mediaQuery).matches);
 
     useLayoutEffect(() => {
         const mediaQueryList = window.matchMedia(mediaQuery);
