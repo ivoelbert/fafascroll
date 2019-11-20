@@ -1,11 +1,11 @@
 import React from 'react';
 import { Scroller } from '../../Lib/components/Scroller/Scroller';
 import { Section } from '../../Lib/components/Section/Section';
-import { useSectionContext } from '../../Lib/hooks/useSectionContext';
+import { useScrollPosition } from '../../Lib/hooks/useScollPosition';
 import './ScrollerPart.scss';
 
 const FirstSection: React.FC = () => {
-    const { relativePosition } = useSectionContext();
+    const { relativePosition } = useScrollPosition();
     const percent: string = (relativePosition * 100).toFixed(2);
 
     return (
@@ -17,7 +17,7 @@ const FirstSection: React.FC = () => {
 };
 
 const SecondSection: React.FC = () => {
-    const { relativePosition } = useSectionContext();
+    const { relativePosition } = useScrollPosition();
 
     return (
         <div className="section second-section">
@@ -30,13 +30,13 @@ const SecondSection: React.FC = () => {
 };
 
 const ThirdSection: React.FC = () => {
-    const { relativePosition } = useSectionContext();
-    const ang: string = `${relativePosition * 90}deg`;
+    const { relativePosition } = useScrollPosition();
+    const ang: number = relativePosition * 90;
 
     return (
         <div className="section third-section">
             <p>third section!</p>
-            <div style={{ backgroundColor: 'white', height: 100, width: 100, transform: `rotate(${ang})` }}></div>
+            <div style={{ backgroundColor: 'white', height: 100, width: 100, transform: `rotate(${ang}deg)` }}></div>
         </div>
     );
 };
@@ -50,7 +50,7 @@ export const ScrollerPart: React.FC = () => {
             <Section name="second-section" duration={2000}>
                 <SecondSection />
             </Section>
-            <Section name="third-section" duration={500}>
+            <Section name="third-section" duration={1000}>
                 <ThirdSection />
             </Section>
         </Scroller>

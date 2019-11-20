@@ -18,11 +18,14 @@ export const Section: React.FC<Props> = ({ children, duration, name }) => {
     const { addSection, isSectionVisible } = useScrollerContext();
     addSection(name, duration);
 
-    const [isActive, offset] = isSectionVisible(name);
+    const [isActive, relativePosition] = isSectionVisible(name);
+    const absolutePosition = duration * relativePosition;
 
     return (
         <AnimatedSection className="sticky-section" pose={isActive ? 'visible' : 'hidden'}>
-            <SectionProvider relativePosition={offset}>{children}</SectionProvider>
+            <SectionProvider relativePosition={relativePosition} absolutePosition={absolutePosition}>
+                {children}
+            </SectionProvider>
         </AnimatedSection>
     );
 };
