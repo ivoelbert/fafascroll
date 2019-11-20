@@ -22,7 +22,7 @@ export const Section: React.FC<Props> = ({ children, duration, name }) => {
     const absolutePosition = duration * relativePosition;
 
     return (
-        <AnimatedSection className="sticky-section" pose={isActive ? 'visible' : 'hidden'}>
+        <AnimatedSection style={{ zIndex: isActive ? 10 : 0 }} className="sticky-section" pose={isActive ? 'visible' : 'hidden'}>
             <SectionProvider relativePosition={relativePosition} absolutePosition={absolutePosition}>
                 {children}
             </SectionProvider>

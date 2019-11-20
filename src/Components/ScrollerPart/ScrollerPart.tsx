@@ -4,13 +4,14 @@ import { Section } from '../../Lib/components/Section/Section';
 import { useScrollPosition } from '../../Lib/hooks/useScollPosition';
 import { tabulate, animationTiming } from '../../Lib/utils/utils';
 import './ScrollerPart.scss';
+import { useMediaQuery } from '../../Hooks/useMediaQuery';
 
 interface ShadowProps {
     scale: number;
     transparent: boolean;
 }
 const Shadow: React.FC<ShadowProps> = ({ scale, transparent }) => {
-    return <div className="shadow" style={{ backgroundColor: transparent ? '#2b2b2b50' : '#2b2b2b', transform: `translateY(-50%) scaleY(${scale})` }}></div>;
+    return <div className="shadow" style={{ backgroundColor: transparent ? '#2b2b2b50' : '#2b2b2b', transform: `scaleY(${scale})` }}></div>;
 };
 
 const FirstSection: React.FC = () => {
@@ -56,9 +57,12 @@ const ThirdSection: React.FC = () => {
 };
 
 export const ScrollerPart: React.FC = () => {
+    const isDesktop = useMediaQuery("screen and (min-width: 768px)");
+    console.log(isDesktop);
+
     return (
         <Scroller className="scroller-container">
-            <Section name="first-section" duration={5000}>
+            <Section name="first-section" duration={isDesktop ? 3000 : 1000}>
                 <FirstSection />
             </Section>
             <Section name="second-section" duration={2000}>
