@@ -3,20 +3,28 @@ import { ScrollerProvider } from '../../context/ScrollerContext';
 import { useScrollerContext } from '../../hooks/useScrollerContext';
 import './Scroller.scss';
 
-export const Scroller: React.FC = ({ children }) => {
+interface ScrollerProps {
+    className?: string;
+}
+
+export const Scroller: React.FC<ScrollerProps> = ({ children, className = '' }) => {
     return (
         <ScrollerProvider>
-            <SectionsContainer>{children}</SectionsContainer>
+            <SectionsContainer className={className}>{children}</SectionsContainer>
         </ScrollerProvider>
     );
 };
 
-const SectionsContainer: React.FC = ({ children }) => {
+interface SectionsContainerProps {
+    className: string;
+}
+
+const SectionsContainer: React.FC<SectionsContainerProps> = ({ children, className }) => {
     const { getHeight, scrollerRef } = useScrollerContext();
     const height: number = getHeight();
 
     return (
-        <div ref={scrollerRef} className="scroller-container" style={{ height }}>
+        <div ref={scrollerRef} className={`fafascroller-container ${className}`} style={{ height }}>
             {children}
         </div>
     );

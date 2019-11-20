@@ -2,16 +2,30 @@ import React from 'react';
 import { Scroller } from '../../Lib/components/Scroller/Scroller';
 import { Section } from '../../Lib/components/Section/Section';
 import { useScrollPosition } from '../../Lib/hooks/useScollPosition';
+import { tabulate, animationTiming } from '../../Lib/utils/utils';
 import './ScrollerPart.scss';
+
+interface ShadowProps {
+    scale: number;
+    transparent: boolean;
+}
+const Shadow: React.FC<ShadowProps> = ({ scale, transparent }) => {
+    return <div className="shadow" style={{ backgroundColor: transparent ? '#2b2b2b50' : '#2b2b2b', transform: `translateY(-50%) scaleY(${scale})` }}></div>;
+};
 
 const FirstSection: React.FC = () => {
     const { relativePosition } = useScrollPosition();
-    const percent: string = (relativePosition * 100).toFixed(2);
+    const shadowCount = 5;
 
     return (
         <div className="section first-section">
-            <p>first section!</p>
-            <p>{percent}% done</p>
+            <h1>0xFAFAFA</h1>
+            {tabulate(shadowCount, (idx: number) => {
+                const delta = 1 / shadowCount;
+                const timing = animationTiming(relativePosition, delta * idx, 1);
+
+                return <Shadow transparent={idx !== shadowCount - 1} key={idx} scale={timing} />;
+            })}
         </div>
     );
 };
@@ -43,8 +57,8 @@ const ThirdSection: React.FC = () => {
 
 export const ScrollerPart: React.FC = () => {
     return (
-        <Scroller>
-            <Section name="first-section" duration={1000}>
+        <Scroller className="scroller-container">
+            <Section name="first-section" duration={5000}>
                 <FirstSection />
             </Section>
             <Section name="second-section" duration={2000}>

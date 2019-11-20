@@ -1,14 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { clamp, mapValue } from '../utils/utils';
 
 type Section = { name: string; height: number };
-
-const clamp = (value: number, min: number, max: number): number => {
-    return Math.min(Math.max(value, min), max);
-};
-
-const mapValue = (num: number, in_min: number, in_max: number, out_min: number, out_max: number): number => {
-    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
-};
 
 export interface ScrollerContext {
     getHeight: () => number;
