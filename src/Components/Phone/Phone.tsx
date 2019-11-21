@@ -32,24 +32,20 @@ export const Phone: React.FC = () => {
     };
     const infoStyle: React.CSSProperties = {
         opacity: secondAnimationTiming,
-    }
+    };
 
-    const textIntroTiming: number = easing.easeOutCubic(secondAnimationTiming)
+    const textIntroTiming: number = easing.easeOutCubic(secondAnimationTiming);
     const textContainerStyle: React.CSSProperties = {
         transform: `translateX(${mapValue(textIntroTiming, 0, 1, 0, 6)}em)`,
-    }
+    };
 
     return (
         <div className="phone-animation-container">
-            <div style={canvasStyle} className="phone-container" ref={refFunction} />;
+            <div style={canvasStyle} className="phone-container" ref={refFunction} />
             <div style={infoStyle} className="info-phone-container">
                 <div style={textContainerStyle} className="text-container">
-                    <h3>
-                        Una banda de keta.
-                    </h3>
-                    <p>
-                        Un kilo de merca escondanlo, porque el doctor va a tomarselo.
-                    </p>
+                    <h3>Una banda de keta.</h3>
+                    <p>Un kilo de merca escondanlo, porque el doctor va a tomarselo.</p>
                 </div>
             </div>
         </div>
