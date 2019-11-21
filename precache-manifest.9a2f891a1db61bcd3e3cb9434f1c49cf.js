@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "038be97064bb28096278f5b07f8f936d",
+    "revision": "e719a8349d7dca3c612423364bfd04ee",
     "url": "/fafascroll/index.html"
   },
   {
-    "revision": "acbb2c2ee441a4714e4e",
+    "revision": "e12f121be8e574527319",
     "url": "/fafascroll/static/css/main.4ec993a7.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fafascroll/static/js/2.3d18cb46.chunk.js"
   },
   {
-    "revision": "acbb2c2ee441a4714e4e",
-    "url": "/fafascroll/static/js/main.4c6202e0.chunk.js"
+    "revision": "e12f121be8e574527319",
+    "url": "/fafascroll/static/js/main.0421cea4.chunk.js"
   },
   {
     "revision": "af82141fdbe6a675047b",
