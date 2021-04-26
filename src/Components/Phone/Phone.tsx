@@ -1,9 +1,9 @@
-import React from 'react';
-import { PhoneScene } from './PhoneScene';
-import { UIState } from './UIState';
-import { useScrollPosition } from '../../Lib/hooks/useScollPosition';
-import { animationTiming, mapValue, timeSlice, easing } from '../../Lib/utils/utils';
-import './Phone.scss';
+import React from "react";
+import { PhoneScene } from "./PhoneScene";
+import { UIState } from "./UIState";
+import { useScrollPosition } from "../../Lib/hooks/useScollPosition";
+import { animationTiming, mapValue, timeSlice, easing } from "../../Lib/utils/utils";
+import "./Phone.scss";
 
 const phoneScene = new PhoneScene();
 const phoneElem: HTMLCanvasElement = phoneScene.getDomElement();
@@ -44,8 +44,8 @@ export const Phone: React.FC = () => {
             <div style={canvasStyle} className="phone-container" ref={refFunction} />
             <div style={infoStyle} className="info-phone-container">
                 <div style={textContainerStyle} className="text-container">
-                    <h3>Una banda de keta.</h3>
-                    <p>Un kilo de merca escondanlo, porque el doctor va a tomarselo.</p>
+                    <h3>I got bored.</h3>
+                    <p>Time to do something else.</p>
                 </div>
             </div>
         </div>
